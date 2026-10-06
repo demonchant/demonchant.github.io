@@ -1,6 +1,6 @@
 # OpenMic GitHub Pages identity host
 
-This directory is the root content for the `demonchant.github.io` GitHub Pages user site. It hosts the Digital Asset Links statement at `https://demonchant.github.io/.well-known/assetlinks.json` for the local APK's current debug signing certificate.
+This directory is the root content for the `demonchant.github.io` GitHub Pages user site. It hosts the Digital Asset Links statement at `https://demonchant.github.io/.well-known/assetlinks.json` for the OpenMic release signing certificate.
 
 ## Publish
 
@@ -10,4 +10,4 @@ After publishing, verify that `https://demonchant.github.io/.well-known/assetlin
 
 ## Signing key warning
 
-The fingerprint in `assetlinks.json` matches the current locally installed APK, which is signed with the Android debug key. This is only for MWA development testing. Replace it with the fingerprint of the stable release signing key before distribution, and keep all private keystores and passwords outside Git. A hosted statement cannot authenticate APKs signed by any other certificate unless their fingerprints are explicitly listed.
+The fingerprint in `assetlinks.json` must match the APK release signing certificate. The release keystore and `keystore.properties` are ignored by Git and must be backed up securely outside this repository. A hosted statement cannot authenticate APKs signed by any other certificate unless their fingerprints are explicitly listed. Debug certificates are intentionally excluded from the production identity statement.
